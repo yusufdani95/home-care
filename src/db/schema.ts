@@ -14,6 +14,7 @@ export const bookings = mysqlTable('bookings', {
   address: text('address').notNull(),
   serviceName: varchar('service_name', { length: 255 }).notNull(),
   notes: text('notes'),
+  source: varchar('source', { length: 50 }).default('online').notNull(),
   bookingDate: varchar('booking_date', { length: 50 }),
   status: varchar('status', { length: 50 }).default('pending').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),

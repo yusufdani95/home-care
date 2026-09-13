@@ -70,7 +70,7 @@ const app = new Elysia()
     '/api/bookings',
     async ({ body, set }) => {
       try {
-        const { patientName, phone, serviceName, address, notes } = body;
+        const { patientName, phone, serviceName, address, notes, source } = body;
 
         if (!patientName || !phone || !serviceName || !address) {
           set.status = 400;
@@ -83,13 +83,14 @@ const app = new Elysia()
           serviceName,
           address,
           notes: notes || '',
+          source: source || 'online',
           status: 'pending',
         });
 
         return {
           success: true,
           message: 'Booking berhasil diterima!',
-          data: { patientName, phone, serviceName, address },
+          data: { patientName, phone, serviceName, address, source: source || 'online' },
         };
       } catch (err: any) {
         console.error('Error inserting booking:', err);
@@ -104,6 +105,7 @@ const app = new Elysia()
         serviceName: t.String(),
         address: t.String(),
         notes: t.Optional(t.String()),
+        source: t.Optional(t.String()),
       }),
     }
   )

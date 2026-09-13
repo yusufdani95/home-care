@@ -1,0 +1,1 @@
+ALTER TABLE `bookings` ADD `source` varchar(50) DEFAULT 'online' NOT NULL;
