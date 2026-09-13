@@ -22,7 +22,6 @@ const app = new Elysia()
   })
   .get('/admin', serveAdmin)
   .get('/admin.html', serveAdmin)
-  .get('//admin', serveAdmin)
   .get('/health', () => ({
     status: 'healthy',
     timestamp: new Date().toISOString(),
