@@ -85,6 +85,7 @@ const app = new Elysia()
           notes: notes || '',
           source: source || 'online',
           status: 'pending',
+          createdAt: new Date(),
         });
 
         return {
