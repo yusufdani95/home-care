@@ -7,21 +7,22 @@ import { bookings } from './db/schema';
 
 const port = Number(process.env.PORT) || 3000;
 
+const serveAdmin = async () => {
+  return new Response(await Bun.file('public/admin.html').text(), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  });
+};
+
 const app = new Elysia()
   .use(html())
-  .use(staticPlugin({ assets: 'public', prefix: '/' }))
   .get('/', async () => {
-    const file = Bun.file('public/index.html');
-    return new Response(await file.text(), {
+    return new Response(await Bun.file('public/index.html').text(), {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
   })
-  .get('/admin', async () => {
-    const file = Bun.file('public/admin.html');
-    return new Response(await file.text(), {
-      headers: { 'Content-Type': 'text/html; charset=utf-8' },
-    });
-  })
+  .get('/admin', serveAdmin)
+  .get('/admin.html', serveAdmin)
+  .get('//admin', serveAdmin)
   .get('/health', () => ({
     status: 'healthy',
     timestamp: new Date().toISOString(),
