@@ -1,18 +1,27 @@
 import { Elysia, t } from 'elysia';
 import { html } from '@elysiajs/html';
+import { staticPlugin } from '@elysiajs/static';
+import { desc, eq } from 'drizzle-orm';
 import { db } from './db';
 import { bookings } from './db/schema';
 
 const port = Number(process.env.PORT) || 3000;
 
+const serveAdmin = async () => {
+  return new Response(await Bun.file('public/admin.html').text(), {
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  });
+};
+
 const app = new Elysia()
   .use(html())
   .get('/', async () => {
-    const file = Bun.file('public/index.html');
-    return new Response(await file.text(), {
+    return new Response(await Bun.file('public/index.html').text(), {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
   })
+  .get('/admin', serveAdmin)
+  .get('/admin.html', serveAdmin)
   .get('/health', () => ({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -61,31 +70,31 @@ const app = new Elysia()
     '/api/bookings',
     async ({ body, set }) => {
       try {
-        const { patientName, phone, serviceName, address, notes } = body;
+        const { patientName, phone, serviceName, address, notes, source } = body;
 
         if (!patientName || !phone || !serviceName || !address) {
           set.status = 400;
           return { success: false, message: 'Mohon lengkapi data pasien' };
         }
 
-        try {
-          await db.insert(bookings).values({
-            patientName,
-            phone,
-            serviceName,
-            address,
-            notes: notes || '',
-          });
-        } catch (dbErr) {
-          console.warn('Database connection warning:', dbErr);
-        }
+        const inserted = await db.insert(bookings).values({
+          patientName,
+          phone,
+          serviceName,
+          address,
+          notes: notes || '',
+          source: source || 'online',
+          status: 'pending',
+          createdAt: new Date(),
+        });
 
         return {
           success: true,
           message: 'Booking berhasil diterima!',
-          data: { patientName, phone, serviceName, address },
+          data: { patientName, phone, serviceName, address, source: source || 'online' },
         };
       } catch (err: any) {
+        console.error('Error inserting booking:', err);
         set.status = 500;
         return { success: false, message: err?.message || 'Server error' };
       }
@@ -97,6 +106,47 @@ const app = new Elysia()
         serviceName: t.String(),
         address: t.String(),
         notes: t.Optional(t.String()),
+        source: t.Optional(t.String()),
+      }),
+    }
+  )
+  .get('/api/admin/bookings', async ({ set }) => {
+    try {
+      const data = await db.select().from(bookings).orderBy(desc(bookings.createdAt));
+      return { success: true, data };
+    } catch (err: any) {
+      console.error('Error fetching admin bookings:', err);
+      set.status = 500;
+      return { success: false, message: err?.message || 'Server error' };
+    }
+  })
+  .patch(
+    '/api/admin/bookings/:id/status',
+    async ({ params, body, set }) => {
+      try {
+        const id = Number(params.id);
+        const { status } = body;
+
+        if (!id || isNaN(id)) {
+          set.status = 400;
+          return { success: false, message: 'ID tidak valid' };
+        }
+
+        await db.update(bookings).set({ status }).where(eq(bookings.id, id));
+
+        return { success: true, message: 'Status booking berhasil diperbarui' };
+      } catch (err: any) {
+        console.error('Error updating status:', err);
+        set.status = 500;
+        return { success: false, message: err?.message || 'Server error' };
+      }
+    },
+    {
+      params: t.Object({
+        id: t.String(),
+      }),
+      body: t.Object({
+        status: t.String(),
       }),
     }
   )
