@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serang Nurse Care - Layanan Perawatan & Kesehatan di Rumah (24 Jam)</title>
+  <meta name="description" content="Layanan perawatan medis dan kesehatan profesional di rumah Anda untuk daerah Serang dan sekitarnya. Operasional 24 Jam. Gratis Biaya Transportasi & Konsultasi.">
+  <meta name="keywords" content="home care serang, perawat rumah serang, infus rumah serang, suntik mual demam, ganti selang NGT serang, cek gula darah serang">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+              900: '#082f49',
+            },
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              green: '#22c55e',
+            }
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+            'glow': '0 0 25px -5px rgba(2, 132, 199, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .gradient-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #0c4a6e 50%, #0284c7 100%);
+    }
+    .gradient-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .pulse-glow {
+      animation: pulseGlow 2s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      50% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-accent-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-user-nurse text-xl"></i>
+          </div>
+          <div>
+            <span class="font-extrabold text-xl text-slate-900 tracking-tight block leading-none">SERANG <span class="text-brand-600">NURSE CARE</span></span>
+            <span class="text-xs text-slate-500 font-semibold tracking-wide flex items-center gap-1 mt-0.5">
+              <span class="w-2 h-2 rounded-full bg-accent-green inline-block animate-pulse"></span> 
+              Layanan Home Care 24 Jam
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#layanan" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Layanan & Harga</a>
+          <a href="#alur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Alur Perawatan</a>
+          <a href="#area" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Cakupan Area</a>
+          <a href="#booking" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Form Reservasi</a>
+        </nav>
+
+        <!-- CTA Buttons Desktop -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="tel:082213487438" class="text-sm font-bold text-slate-700 hover:text-brand-600 flex items-center gap-2">
+            <i class="fa-solid fa-phone text-brand-600"></i> 0822-1348-7438
+          </a>
+          <a href="#booking" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-600/30 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check"></i> Booking Sekarang
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-lg px-4 pt-3 pb-6 shadow-xl">
+      <div class="flex flex-col gap-4">
+        <a href="#layanan" class="mobile-nav-link text-slate-700 font-semibold py-2 border-b border-slate-100">Layanan & Harga</a>
+        <a href="#alur" class="mobile-nav-link text-slate-700 font-semibold py-2 border-b border-slate-100">Alur Perawatan</a>
+        <a href="#area" class="mobile-nav-link text-slate-700 font-semibold py-2 border-b border-slate-100">Cakupan Area</a>
+        <a href="#booking" class="mobile-nav-link text-slate-700 font-semibold py-2 border-b border-slate-100">Form Reservasi</a>
+        <div class="pt-2 flex flex-col gap-3">
+          <a href="https://wa.me/6282213487438?text=Halo%20Serang%20Nurse%20Care,%20saya%20ingin%20berkonsultasi" target="_blank" class="w-full py-3 rounded-xl bg-accent-green hover:bg-emerald-600 text-white font-bold text-center text-sm shadow-md flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Chat WhatsApp Instant
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden gradient-hero text-white pt-12 pb-20 lg:pt-20 lg:pb-32">
+      <!-- Background Shapes & Elements -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 -right-20 w-96 h-96 bg-accent-400/20 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Text -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-accent-400 uppercase tracking-wider">
+              <i class="fa-solid fa-house-medical"></i> Layanan Kesehatan Home Care Terpercaya
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+              Sehat di Rumah <br class="hidden sm:inline">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-teal-200 to-emerald-300">Lebih Nyaman & Aman</span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Perawatan medis profesional langsung di rumah Anda. Ditangani langsung oleh perawat berpengalaman (**Br. Ricky S.Kep**). Tanpa antre di rumah sakit, siap melayani 24 Jam.
+            </p>
+
+            <!-- Free Promotion Highlight Badge -->
+            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-amber-300/40 text-amber-200 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-amber-400/20 flex items-center justify-center text-amber-300 text-lg">
+                <i class="fa-solid fa-gift"></i>
+              </div>
+              <div class="text-left text-xs sm:text-sm">
+                <span class="font-extrabold text-white uppercase block">PROMO SPESIAL GRATIS:</span>
+                Konsultasi Medis, Cek Tekanan Darah, & Oxymetri (Gratis)
+              </div>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="https://wa.me/6282213487438?text=Halo%20Serang%20Nurse%20Care,%20saya%20ingin%20booking%20layanan%20homecare" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-accent-green hover:bg-emerald-600 text-white font-extrabold text-base shadow-xl shadow-emerald-900/30 transition-all hover:scale-105 flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Booking via WhatsApp (Fast Response)
+              </a>
+              <a href="#layanan" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/20 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-stethoscope"></i> Lihat Catalog Layanan
+              </a>
+            </div>
+
+            <!-- Highlights Checklist -->
+            <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-300 font-semibold">
+              <div class="flex items-center justify-center lg:justify-start gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i> Operasional 24 Jam
+              </div>
+              <div class="flex items-center justify-center lg:justify-start gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i> Free Biaya Transport
+              </div>
+              <div class="flex items-center justify-center lg:justify-start gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i> Tenaga Kesehatan Resmi
+              </div>
+              <div class="flex items-center justify-center lg:justify-start gap-2">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i> Alat Medis Steril
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Quick Form Card / Visual Banner -->
+          <div class="lg:col-span-5">
+            <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
+              <div class="absolute -top-3 right-6 px-4 py-1 rounded-full bg-amber-400 text-slate-900 font-black text-xs uppercase tracking-wider shadow-md">
+                Fast Booking
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-user-doctor text-brand-600"></i> Form Konsultasi & Booking
+              </h3>
+              <p class="text-xs text-slate-500 mb-6">Isi formulir singkat di bawah untuk terhubung langsung dengan perawat kami.</p>
+
+              <form id="hero-quick-form" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nama Pasien</label>
+                  <input type="text" id="form-name" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm transition-all">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nomor WhatsApp</label>
+                  <input type="tel" id="form-phone" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm transition-all">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Pilihan Layanan</label>
+                  <select id="form-service" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm transition-all">
+                    <option value="">-- Pilih Layanan Medis --</option>
+                    <optgroup label="Daftar Infus">
+                      <option value="Infus Demam (170k)">Infus Demam - Rp 170.000</option>
+                      <option value="Infus Demam + Vitamin (250k)">Infus Demam + Vitamin - Rp 250.000</option>
+                      <option value="Infus Asam Lambung (150k)">Infus Asam Lambung - Rp 150.000</option>
+                      <option value="Infus Mual Muntah (160k)">Infus Mual Muntah - Rp 160.000</option>
+                      <option value="Infus Asam Lambung + Mual Muntah (170k)">Infus Asam Lambung + Mual Muntah - Rp 170.000</option>
+                      <option value="Infus Vitamin C1000 (200k)">Infus Vitamin C1000 - Rp 200.000</option>
+                      <option value="Infus Neurobion (180k)">Infus Neurobion - Rp 180.000</option>
+                      <option value="Infus Vitamin C1000 + Neurobion (250k)">Infus Vitamin C1000 + Neurobion - Rp 250.000</option>
+                      <option value="Infus Diare / Dehidrasi (160k)">Infus Diare / Dehidrasi - Rp 160.000</option>
+                    </optgroup>
+                    <optgroup label="Daftar Injeksi">
+                      <option value="Suntik Anti Nyeri (100k)">Suntik Anti Nyeri - Rp 100.000</option>
+                      <option value="Suntik Mual Muntah (85k)">Suntik Mual Muntah - Rp 85.000</option>
+                      <option value="Suntik Asam Lambung (85k)">Suntik Asam Lambung - Rp 85.000</option>
+                    </optgroup>
+                    <optgroup label="Tindakan Keperawatan">
+                      <option value="Rawat Luka / Ganti Verban Modern Dressing">Rawat Luka / Ganti Verban (Post Op / Diabetes / Bakar)</option>
+                      <option value="Ganti Selang Cateter">Ganti Selang Cateter</option>
+                      <option value="Ganti Selang NGT">Ganti Selang NGT</option>
+                    </optgroup>
+                    <optgroup label="Skrining Metabolik">
+                      <option value="Cek Gula Darah (15k)">Cek Gula Darah - Rp 15.000</option>
+                      <option value="Cek Asam Urat (20k)">Cek Asam Urat - Rp 20.000</option>
+                      <option value="Cek Kolesterol (25k)">Cek Kolesterol - Rp 25.000</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Alamat Domisili (Serang & Sekitarnya)</label>
+                  <textarea id="form-address" rows="2" required placeholder="Jalan, RT/RW, Kecamatan, Serang" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm transition-all"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                  <button type="button" id="btn-submit-wa" class="w-full py-3.5 rounded-xl bg-accent-green hover:bg-emerald-600 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Kirim WhatsApp
+                  </button>
+                  <button type="submit" id="btn-submit-db" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-md">
+                    <i class="fa-solid fa-paper-plane"></i> Booking Online
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTIONAL ADVANTAGES SECTION -->
+    <section class="py-12 bg-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">Aman & Terpercaya</h4>
+              <p class="text-xs text-slate-500">SOP Medis Resmi & Alat Steril</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">Pelayanan Cepat</h4>
+              <p class="text-xs text-slate-500">Perawat Langsung Datang</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">Nyaman di Rumah</h4>
+              <p class="text-xs text-slate-500">Tanpa Perlu Antre di RS</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-200 transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">Tenaga Kesehatan</h4>
+              <p class="text-xs text-slate-500">Ditangani Ners (Br. Ricky S.Kep)</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOG SERVICES SECTION -->
+    <section id="layanan" class="py-16 sm:py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 font-bold text-xs uppercase tracking-wider mb-3">
+            <i class="fa-solid fa-list-check"></i> Katalog Layanan Lengkap
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Pilihan Layanan Medis Home Care
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Seluruh tindakan dilakukan oleh perawat profesional menggunakan peralatan steril medis standar rumah sakit.
+          </p>
+          
+          <!-- Search Bar -->
+          <div class="mt-6 relative max-w-md mx-auto">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="text" id="service-search" placeholder="Cari layanan (misal: Demam, Vit C, Luka, Gula Darah)..." class="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 shadow-sm focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+            <button class="cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-brand-600 text-white shadow-md transition-all" data-category="all">Semua Layanan</button>
+            <button class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all" data-category="infus">Daftar Infus</button>
+            <button class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all" data-category="injeksi">Daftar Injeksi</button>
+            <button class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all" data-category="tindakan">Tindakan Keperawatan</button>
+            <button class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all" data-category="skrining">Skrining Metabolik</button>
+          </div>
+        </div>
+
+        <!-- SERVICES GRID -->
+        <div id="services-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Category 1: Infus -->
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus demam">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-vial"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 170.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Demam</h3>
+              <p class="text-xs text-slate-500 mb-4">Penanganan pertama untuk mengatasi demam tinggi, menggigil, dan lemas tubuh.</p>
+            </div>
+            <button onclick="selectService('Infus Demam (170k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus demam vitamin">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-vial-circle-check"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 250.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Demam + Vitamin</h3>
+              <p class="text-xs text-slate-500 mb-4">Kombinasi pereda demam dengan tambahan multivitamin untuk mempercepat pemulihan.</p>
+            </div>
+            <button onclick="selectService('Infus Demam + Vitamin (250k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus asam lambung">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-stomach"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 150.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Asam Lambung</h3>
+              <p class="text-xs text-slate-500 mb-4">Meredakan perih ulu hati, gerd, dan gejala gastritis secara cepat via intravena.</p>
+            </div>
+            <button onclick="selectService('Infus Asam Lambung (150k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus mual muntah">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-hand-holding-medical"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 160.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Mual Muntah</h3>
+              <p class="text-xs text-slate-500 mb-4">Menghentikan rasa mual berat dan mencegah dehidrasi akibat muntah berlebih.</p>
+            </div>
+            <button onclick="selectService('Infus Mual Muntah (160k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus asam lambung mual muntah">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-sky-100 text-brand-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-notes-medical"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 170.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Asam Lambung + Mual Muntah</h3>
+              <p class="text-xs text-slate-500 mb-4">Terapi ganda mengatasi nyeri ulu hati beserta mual muntah sekaligus.</p>
+            </div>
+            <button onclick="selectService('Infus Asam Lambung + Mual Muntah (170k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus vitamin c1000">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-bolt"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 200.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Vitamin C1000</h3>
+              <p class="text-xs text-slate-500 mb-4">Meningkatkan imun tubuh, antioksidan tinggi, dan memulihkan stamina lesu.</p>
+            </div>
+            <button onclick="selectService('Infus Vitamin C1000 (200k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus neurobion">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-brain"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 180.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Neurobion</h3>
+              <p class="text-xs text-slate-500 mb-4">Dukungan vitamin neurotropik (B1, B6, B12) untuk kebas, kesemutan, dan pegal otot.</p>
+            </div>
+            <button onclick="selectService('Infus Neurobion (180k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus vitamin c1000 neurobion">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-shield-virus"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 250.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Vit C1000 + Neurobion</h3>
+              <p class="text-xs text-slate-500 mb-4">Kombinasi lengkap imunitas & pemulihan saraf pegal linu ekstra maksimal.</p>
+            </div>
+            <button onclick="selectService('Infus Vitamin C1000 + Neurobion (250k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="infus" data-name="infus diare dehidrasi">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-droplet"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 160.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Infus Diare / Dehidrasi</h3>
+              <p class="text-xs text-slate-500 mb-4">Penggantian cairan elektrolit dengan cepat akibat diare berat atau kekurangan cairan.</p>
+            </div>
+            <button onclick="selectService('Infus Diare / Dehidrasi (160k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <!-- Category 2: Injeksi -->
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="injeksi" data-name="suntik anti nyeri">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-syringe"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 100.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Suntik Anti Nyeri</h3>
+              <p class="text-xs text-slate-500 mb-4">Tindakan suntikan meredakan nyeri sedang hingga berat (sakit kepala, migrain, nyeri otot).</p>
+            </div>
+            <button onclick="selectService('Suntik Anti Nyeri (100k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="injeksi" data-name="suntik mual muntah">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-syringe"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 85.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Suntik Mual Muntah</h3>
+              <p class="text-xs text-slate-500 mb-4">Injeksi antiemetik instant langsung meredakan mual tanpa perlu diinfus lama.</p>
+            </div>
+            <button onclick="selectService('Suntik Mual Muntah (85k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="injeksi" data-name="suntik asam lambung">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-syringe"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 85.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Suntik Asam Lambung</h3>
+              <p class="text-xs text-slate-500 mb-4">Injeksi penekan asam lambung berlebih untuk rasa nyaman instant.</p>
+            </div>
+            <button onclick="selectService('Suntik Asam Lambung (85k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <!-- Category 3: Tindakan Keperawatan -->
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="tindakan" data-name="rawat luka ganti verban modern dressing">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-bandage"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-bold text-xs">Penyesuaian Luka</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Rawat Luka / Ganti Verban</h3>
+              <p class="text-xs text-slate-500 mb-4">Teknik Modern Dressing untuk luka post operasi, luka diabetes, luka bakar, dll.</p>
+            </div>
+            <button onclick="selectService('Rawat Luka / Ganti Verban Modern Dressing')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="tindakan" data-name="ganti selang cateter">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-staff-snake"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-xs">Steril Medis</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Ganti Selang Cateter</h3>
+              <p class="text-xs text-slate-500 mb-4">Pemasangan dan penggantian selang urine (kateter) secara steril di rumah.</p>
+            </div>
+            <button onclick="selectService('Ganti Selang Cateter')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="tindakan" data-name="ganti selang ngt">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-user-nurse"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-xs">Steril Medis</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Ganti Selang NGT</h3>
+              <p class="text-xs text-slate-500 mb-4">Pemasangan selang makan (Nasogastric Tube) bagi pasien kesulitan menelan.</p>
+            </div>
+            <button onclick="selectService('Ganti Selang NGT')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <!-- Category 4: Skrining Metabolik -->
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="skrining" data-name="cek gula darah">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-cubes-stacked"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 15.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Cek Gula Darah</h3>
+              <p class="text-xs text-slate-500 mb-4">Pemeriksaan kadar glukosa darah instant menggunakan strip digital akurat.</p>
+            </div>
+            <button onclick="selectService('Cek Gula Darah (15k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="skrining" data-name="cek asam urat">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-bone"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 20.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Cek Asam Urat</h3>
+              <p class="text-xs text-slate-500 mb-4">Pemeriksaan kadar Uric Acid cepat untuk evaluasi persendian kaki/tangan.</p>
+            </div>
+            <button onclick="selectService('Cek Asam Urat (20k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+          <div class="service-card gradient-card p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between" data-cat="skrining" data-name="cek kolesterol">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <span class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-extrabold text-xs">Rp 25.000</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">Cek Kolesterol</h3>
+              <p class="text-xs text-slate-500 mb-4">Skrining awal kadar lemak darah total untuk kesehatan kardiovaskular.</p>
+            </div>
+            <button onclick="selectService('Cek Kolesterol (25k)')" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-700 font-bold text-xs transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Pesan Layanan Ini
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CARE PLAN / ALUR PERAWATAN SECTION -->
+    <section id="alur" class="py-16 sm:py-24 bg-white border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-bold text-xs uppercase tracking-wider mb-3">
+            <i class="fa-solid fa-route"></i> Alur Layanan Mudah
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Bagaimana Cara Mendapatkan Layanan?
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Hanya butuh 4 langkah mudah untuk mendapatkan perawatan medis langsung di rumah Anda.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          
+          <!-- Step 1 -->
+          <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative group hover:bg-brand-50 hover:border-brand-200 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-600 text-white font-black text-2xl flex items-center justify-center mb-6 shadow-md shadow-brand-600/30">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Reservasi / Chat</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Hubungi via WhatsApp atau isi form online di website dengan menyebutkan keluhan & alamat Anda.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative group hover:bg-brand-50 hover:border-brand-200 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-600 text-white font-black text-2xl flex items-center justify-center mb-6 shadow-md shadow-brand-600/30">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Konsultasi Medis</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Perawat akan mengonfirmasi kondisi pasien, memberikan konsultasi gratis, serta menyiapkan alat medis.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative group hover:bg-brand-50 hover:border-brand-200 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-600 text-white font-black text-2xl flex items-center justify-center mb-6 shadow-md shadow-brand-600/30">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Perawat Datang</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Tenaga kesehatan (Br. Ricky S.Kep) langsung meluncur ke rumah Anda (Bebas Biaya Transport Serang).
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 relative group hover:bg-brand-50 hover:border-brand-200 transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-600 text-white font-black text-2xl flex items-center justify-center mb-6 shadow-md shadow-brand-600/30">
+              4
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Tindakan Medis</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Penanganan infus/tindakan dilakukan sesuai SOP steril hingga pasien merasa nyaman & segar.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AREA COVERAGE & OPERATIONAL SECTION -->
+    <section id="area" class="py-16 sm:py-24 bg-gradient-to-br from-slate-900 via-brand-900 to-slate-900 text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs uppercase tracking-wider border border-emerald-500/30">
+              <i class="fa-solid fa-clock-rotate-left"></i> Siap 24 Jam Setiap Hari
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+              Cakupan Area Layanan & Operasional 24/7
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Kami siap melayani kebutuhan medis Anda dan keluarga kapan saja tanpa khawatir biaya ongkos kirim.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-solid fa-truck-medical"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-base">GRATIS Biaya Transportasi</h4>
+                  <p class="text-xs text-slate-300">Khusus area Kota Serang dan sekitarnya (Cikande, Ciruas, Kramatwatu, Walantaka, dll).</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10">
+                <div class="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-solid fa-user-nurse"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-base">Penanggung Jawab Medis</h4>
+                  <p class="text-xs text-slate-300">Br. Ricky S.Kep (Perawat Profesional Terlisensi).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Call Box -->
+          <div class="lg:col-span-6">
+            <div class="bg-white/10 backdrop-blur-xl border border-white/20 p-8 sm:p-10 rounded-3xl text-center space-y-6">
+              <div class="w-20 h-20 rounded-full bg-accent-green text-white flex items-center justify-center text-3xl mx-auto shadow-xl pulse-glow">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Butuh Bantuan Darurat Medis?</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Hubungi Kami Sekarang</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-300">
+                Konsultasikan gejala penyakit Anda secara gratis langsung dengan penanggung jawab perawat.
+              </p>
+              <a href="https://wa.me/6282213487438?text=Halo%20Serang%20Nurse%20Care,%20saya%20butuh%20bantuan%20medis%20segera" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-accent-green hover:bg-emerald-600 text-white font-extrabold text-lg shadow-2xl transition-transform hover:scale-105 w-full">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> 0822-1348-7438 (Br. Ricky S.Kep)
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+            <div class="w-8 h-8 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold">
+              <i class="fa-solid fa-user-nurse"></i>
+            </div>
+            <span class="font-extrabold text-white text-lg tracking-tight">SERANG NURSE CARE</span>
+          </div>
+          <p class="text-xs text-slate-500">Layanan kesehatan perawatan di rumah profesional, aman, dan nyaman 24 Jam.</p>
+        </div>
+
+        <div class="text-xs text-slate-500">
+          &copy; 2026 Serang Nurse Care. All rights reserved. <br>
+          Dikembangkan untuk kemudahan layanan kesehatan keluarga Anda.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/6282213487438?text=Halo%20Serang%20Nurse%20Care,%20saya%20ingin%20bertanya%20layanan" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-accent-green text-white flex items-center justify-center text-3xl shadow-2xl pulse-glow hover:scale-110 transition-transform" title="Chat WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-24 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 text-sm font-semibold">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
+    <span id="toast-message">Booking berhasil disimpan!</span>
+  </div>
+
+  <!-- JAVASCRIPT FOR INTERACTIVITY -->
+  <script>
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile nav when clicking link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Category Tabs Filter
+    const catTabs = document.querySelectorAll('.cat-tab');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const searchInput = document.getElementById('service-search');
+
+    function filterServices() {
+      const activeCat = document.querySelector('.cat-tab.active')?.getAttribute('data-category') || 'all';
+      const searchVal = searchInput?.value.toLowerCase().trim() || '';
+
+      serviceCards.forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const name = card.getAttribute('data-name')?.toLowerCase() || '';
+
+        const matchesCat = (activeCat === 'all' || cat === activeCat);
+        const matchesSearch = (!searchVal || name.includes(searchVal));
+
+        if (matchesCat && matchesSearch) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    catTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        catTabs.forEach(t => {
+          t.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-md');
+          t.classList.add('bg-white', 'text-slate-600');
+        });
+        tab.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-md');
+        tab.classList.remove('bg-white', 'text-slate-600');
+        filterServices();
+      });
+    });
+
+    searchInput?.addEventListener('input', filterServices);
+
+    // Select Service to Form Scroll
+    function selectService(serviceName) {
+      const formService = document.getElementById('form-service');
+      if (formService) {
+        formService.value = serviceName;
+        document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+        // Scroll to form smoothly
+        const quickForm = document.getElementById('hero-quick-form');
+        quickForm?.scrollIntoView({ behavior: 'smooth' });
+        
+        // Highlight form input
+        formService.focus();
+        showToast(`Layanan "${serviceName}" dipilih! Silakan lengkapi form.`);
+      }
+    }
+
+    // WhatsApp Direct Send Button
+    document.getElementById('btn-submit-wa')?.addEventListener('click', () => {
+      const name = document.getElementById('form-name')?.value;
+      const phone = document.getElementById('form-phone')?.value;
+      const service = document.getElementById('form-service')?.value;
+      const address = document.getElementById('form-address')?.value;
+
+      if (!name || !phone || !service || !address) {
+        alert('Mohon lengkapi Nama, No. WA, Pilihan Layanan, dan Alamat Anda terlebih dahulu.');
+        return;
+      }
+
+      const text = `Halo Serang Nurse Care, saya ingin reservasi layanan:\n\n` +
+                   `• Nama Pasien: ${name}\n` +
+                   `• No. WA: ${phone}\n` +
+                   `• Layanan: ${service}\n` +
+                   `• Alamat: ${address}\n\n` +
+                   `Mohon informasi lebih lanjut. Terima kasih.`;
+
+      const waUrl = `https://wa.me/6282213487438?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
+    });
+
+    // Form Submit to Backend API
+    document.getElementById('hero-quick-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('form-name')?.value;
+      const phone = document.getElementById('form-phone')?.value;
+      const service = document.getElementById('form-service')?.value;
+      const address = document.getElementById('form-address')?.value;
+
+      try {
+        const response = await fetch('/api/bookings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            patientName: name,
+            phone: phone,
+            serviceName: service,
+            address: address
+          })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          showToast('Booking Online berhasil dikirim! Perawat kami akan segera menghubungi Anda.');
+          document.getElementById('hero-quick-form')?.reset();
+        } else {
+          showToast(result.message || 'Gagal menyimpan booking.');
+        }
+      } catch (err) {
+        showToast('Terjadi kesalahan koneksi.');
+      }
+    });
+
+    // Toast Notification helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      if (toast && toastMsg) {
+        toastMsg.textContent = msg;
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 4000);
+      }
+    }
+  </script>
+</body>
+</html>

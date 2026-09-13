@@ -18,6 +18,8 @@
     "typescript": "^7"
   },
   "dependencies": {
+    "@elysiajs/html": "^1.4.2",
+    "@elysiajs/static": "^1.4.10",
     "drizzle-orm": "^0.45.2",
     "elysia": "^1.4.30",
     "mysql2": "^3.24.4"
