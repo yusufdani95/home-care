@@ -265,6 +265,38 @@
         cleaned = '62' + cleaned.slice(1);
       }
       return cleaned;
+    function formatDateWIB(dateInput) {
+      if (!dateInput) return '-';
+      try {
+        let dateObj;
+        if (typeof dateInput === 'string') {
+          // If ISO string ends with Z or has offset, parse directly.
+          // If MySQL raw string without Z, append Z or parse safely.
+          if (!dateInput.endsWith('Z') && !dateInput.includes('+') && dateInput.includes(' ')) {
+            dateObj = new Date(dateInput.replace(' ', 'T') + 'Z');
+          } else {
+            dateObj = new Date(dateInput);
+          }
+        } else {
+          dateObj = new Date(dateInput);
+        }
+
+        if (isNaN(dateObj.getTime())) {
+          dateObj = new Date(dateInput);
+        }
+
+        return dateObj.toLocaleString('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }) + ' WIB';
+      } catch (e) {
+        return String(dateInput);
+      }
     }
 
     function renderTable() {
@@ -301,9 +333,7 @@
 
       tbody.innerHTML = filtered.map((item, index) => {
         const formattedWa = formatPhoneForWA(item.phone);
-        const dateStr = item.createdAt ? new Date(item.createdAt).toLocaleString('id-ID', {
-          day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
-        }) : '-';
+        const dateStr = formatDateWIB(item.createdAt);
 
         const isWa = isWhatsappSource(item);
         const sourceBadge = isWa
