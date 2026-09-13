@@ -3,7 +3,10 @@ import { mysqlTable, serial, varchar, text, timestamp } from 'drizzle-orm/mysql-
 export const users = mysqlTable('users', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
+  username: varchar('username', { length: 100 }).notNull().unique(),
+  password: varchar('password', { length: 255 }).notNull(),
+  email: varchar('email', { length: 255 }),
+  role: varchar('role', { length: 50 }).default('admin').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 
